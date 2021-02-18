@@ -29,7 +29,6 @@
     "docs": "trash build/docs && typedoc src",
     "docs:publish": "npm run docs && gh-pages -d build/docs",
     "release": "standard-version",
-    "prepare": "npm run build",
     "publish:beta": "npm run build && node scripts/publish.js --beta",
     "publish": "npm run docs:publish && node scripts/publish.js --current --latest",
     "cache:clean": "node scripts/cache.js --current --latest",
