@@ -15,26 +15,26 @@
     "build"
   ],
   "scripts": {
-    "build": "npx gulp build:typescript && yarn webpack && yarn build:check",
+    "build": "npx gulp build:typescript && npm run webpack && npm run build:check",
     "build:main": "npx gulp typescript:main",
     "build:module": "npx gulp typescript:module",
     "build:check": "node scripts/check.js",
     "webpack": "npx gulp build:webpack",
     "webpack:profile": "npx webpack --profile --json > .stats.json",
-    "webpack:analyze": "yarn webpack:profile && npx webpack-bundle-analyzer .stats.json build/browser/",
+    "webpack:analyze": "npm run webpack:profile && npx webpack-bundle-analyzer .stats.json build/browser/",
     "lint": "tslint -p tsconfig.tslint.json",
-    "test": "yarn lint && yarn build && npx jest",
-    "test:watch": "yarn t -- --watch",
+    "test": "npm run lint && npm run build && npx jest",
+    "test:watch": "npm t -- --watch",
     "test:codecov": "npx codecov",
     "docs": "trash build/docs && typedoc src",
-    "docs:publish": "yarn docs && gh-pages -d build/docs",
+    "docs:publish": "npm run docs && gh-pages -d build/docs",
     "release": "standard-version",
-    "prepare": "yarn build",
-    "publish:beta": "yarn build && node scripts/publish.js --beta",
-    "publish": "yarn docs:publish && node scripts/publish.js --current --latest",
+    "prepare": "npm run build",
+    "publish:beta": "npm run build && node scripts/publish.js --beta",
+    "publish": "npm run docs:publish && node scripts/publish.js --current --latest",
     "cache:clean": "node scripts/cache.js --current --latest",
     "cache:clean:beta": "node scripts/cache.js --beta",
-    "examples": "yarn build && node ./examples/examples.js"
+    "examples": "npm run build && node ./examples/examples.js"
   },
   "engines": {
     "node": ">=8"
